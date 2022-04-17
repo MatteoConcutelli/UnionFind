@@ -1,2 +1,2 @@
 # UnionFind
-UnionFind data structure implemented with QuickFindTree whit amortized cost of the union ( O(logn) )
+UnionFind data structure implemented with QuickFindTree with amortized cost of the union ( O(logn) )
