@@ -9,9 +9,9 @@ public class QuickFindTree {
         this.radix.setFather(null);
 
         firstNode.setFather(this.radix);
-        this.radix.sons.add(firstNode);
+        this.radix.addSon(firstNode);
 
-        firstNode.sons.clear();
+        firstNode.deleteSons();
         size++;
     }
 
@@ -32,7 +32,7 @@ public class QuickFindTree {
         return "QuickFindTree{" +
                 "radix=" + radix +
                 ", size=" + size +
-                ", sons= {" + radix.sons +
+                ", sons= {" + radix.getSons() +
                 '}';
     }
 }
