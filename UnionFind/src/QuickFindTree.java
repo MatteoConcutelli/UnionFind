@@ -1,9 +1,19 @@
-public class QuickFindTree {
+public class QuickFindTree implements UnionFind {
 
-    private final Node<?> radix;
+    private Node<?> radix;
     private int size = 0;
 
-    public QuickFindTree(Node<?> firstNode) {
+    public QuickFindTree(Elem<?> firstElem) {
+        makeSet(firstElem);
+    }
+
+
+
+    // MAKESET
+    // the element and the node must have the same type
+    public void makeSet(Elem<?> firstElem) {
+
+        Node<?> firstNode = new Node<>(firstElem);
 
         this.radix = new Node<>(firstNode.getElem());
         this.radix.setFather(null);
@@ -13,6 +23,9 @@ public class QuickFindTree {
 
         firstNode.sons.clear();
         size++;
+
+        elements.put(firstElem, firstNode);
+
     }
 
     public Node<?> getRadix() {
