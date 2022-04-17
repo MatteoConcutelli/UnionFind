@@ -44,5 +44,4 @@ public interface UnionFind {
         return elements.get(elem).getFather();
     }
 
-
 }

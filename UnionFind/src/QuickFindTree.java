@@ -10,7 +10,6 @@ public class QuickFindTree implements UnionFind {
         private Node<?> father;
         private final List< Node<?> > sons = new ArrayList<>();
 
-
         public Node(Elem<T> elem) {
             this.elem = elem;
         }
@@ -92,4 +91,5 @@ public class QuickFindTree implements UnionFind {
                 ", sons= {" + root.getSons() +
                 '}';
     }
+
 }
