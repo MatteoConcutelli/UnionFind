@@ -7,8 +7,6 @@ public class QuickFindTree implements UnionFind {
         makeSet(firstElem);
     }
 
-
-
     // MAKESET
     // the element and the node must have the same type
     public void makeSet(Elem<?> firstElem) {
@@ -19,9 +17,9 @@ public class QuickFindTree implements UnionFind {
         this.radix.setFather(null);
 
         firstNode.setFather(this.radix);
-        this.radix.sons.add(firstNode);
+        this.radix.addSon(firstNode);
 
-        firstNode.sons.clear();
+        firstNode.deleteSons();
         size++;
 
         elements.put(firstElem, firstNode);
@@ -45,7 +43,7 @@ public class QuickFindTree implements UnionFind {
         return "QuickFindTree{" +
                 "radix=" + radix +
                 ", size=" + size +
-                ", sons= {" + radix.sons +
+                ", sons= {" + radix.getSons() +
                 '}';
     }
 }

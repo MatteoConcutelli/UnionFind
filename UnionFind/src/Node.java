@@ -6,7 +6,7 @@ public class Node<E> {
     private final Elem<E> elem;
 
     private Node<?> father;
-    public List< Node<?> > sons = new ArrayList<>();
+    private List< Node<?> > sons = new ArrayList<>();
 
     public Node(Elem<E> elem) {
         this.elem = elem;
@@ -22,6 +22,18 @@ public class Node<E> {
 
     public Elem<E> getElem() {
         return elem;
+    }
+
+    public void addSon(Node<?> node) {
+        sons.add(node);
+    }
+
+    public List<Node<?>> getSons() {
+        return sons;
+    }
+
+    public void deleteSons () {
+        sons.clear();
     }
 
     @Override

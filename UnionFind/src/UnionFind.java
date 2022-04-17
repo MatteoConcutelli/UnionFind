@@ -9,23 +9,23 @@ public interface UnionFind {
 
     static QuickFindTree union(QuickFindTree A, QuickFindTree B){
         if ( A.getSize() >= B.getSize()) {
-            for (Node<?> node : B.getRadix().sons) {
+            for (Node<?> node : B.getRadix().getSons()) {
                 node.setFather(A.getRadix());
-                A.getRadix().sons.add(node);
+                A.getRadix().addSon(node);
             }
 
-            B.getRadix().sons.clear();
+            B.getRadix().deleteSons();
             A.setSize(A.getSize()+B.getSize());
 
             return A;
         }
         else {
-            for (Node<?> node : A.getRadix().sons) {
+            for (Node<?> node : A.getRadix().getSons()) {
                 node.setFather(B.getRadix());
-                B.getRadix().sons.add(node);
+                B.getRadix().addSon(node);
             }
 
-            A.getRadix().sons.clear();
+            A.getRadix().deleteSons();
             B.setSize(A.getSize()+B.getSize());
 
             return B;
