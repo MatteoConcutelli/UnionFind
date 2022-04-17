@@ -11,7 +11,6 @@ public class Test {
         elements.add(new Elem<>("beautiful"));
         elements.add(new Elem<>("world"));
 
-
         QuickFindTree set1 = new QuickFindTree(elements.get(0));
         QuickFindTree set2 = new QuickFindTree(elements.get(1));
 

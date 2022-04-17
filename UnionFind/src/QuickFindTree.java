@@ -1,6 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class QuickFindTree implements UnionFind {
 
-    private Node<?> radix;
+    public static class Node<T> {
+
+        private final Elem<T> elem;
+
+        private Node<?> father;
+        private final List< Node<?> > sons = new ArrayList<>();
+
+
+        public Node(Elem<T> elem) {
+            this.elem = elem;
+        }
+
+        public void setFather(Node<?> father) {
+            this.father = father;
+        }
+
+        public Node<?> getFather() {
+            return father;
+        }
+
+        public Elem<T> getElem() {
+            return elem;
+        }
+
+        public void addSon(Node<?> node) {
+            sons.add(node);
+        }
+
+        public List<Node<?>> getSons() {
+            return sons;
+        }
+
+        public void deleteSons () {
+            sons.clear();
+        }
+
+        @Override
+        public String toString() {
+            return "{" + elem + '}';
+        }
+
+    }
+
+    QuickFindTree.Node<?> root;
     private int size = 0;
 
     public QuickFindTree(Elem<?> firstElem) {
@@ -13,11 +59,11 @@ public class QuickFindTree implements UnionFind {
 
         Node<?> firstNode = new Node<>(firstElem);
 
-        this.radix = new Node<>(firstNode.getElem());
-        this.radix.setFather(null);
+        root = new Node<>(firstNode.getElem());
+        root.setFather(null);
 
-        firstNode.setFather(this.radix);
-        this.radix.addSon(firstNode);
+        firstNode.setFather(root);
+        root.addSon(firstNode);
 
         firstNode.deleteSons();
         size++;
@@ -26,8 +72,8 @@ public class QuickFindTree implements UnionFind {
 
     }
 
-    public Node<?> getRadix() {
-        return radix;
+    public Node<?> getRoot() {
+        return root;
     }
 
     public int getSize() {
@@ -41,9 +87,9 @@ public class QuickFindTree implements UnionFind {
     @Override
     public String toString() {
         return "QuickFindTree{" +
-                "radix=" + radix +
+                "radix=" + root +
                 ", size=" + size +
-                ", sons= {" + radix.getSons() +
+                ", sons= {" + root.getSons() +
                 '}';
     }
 }
