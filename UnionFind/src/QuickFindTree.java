@@ -86,9 +86,9 @@ public class QuickFindTree implements UnionFind {
     @Override
     public String toString() {
         return "QuickFindTree{" +
-                "radix=" + root +
-                ", size=" + size +
-                ", sons= {" + root.getSons() +
+                "root =" + root +
+                ", size =" + size +
+                ", sons = {" + root.getSons() +
                 '}';
     }
 
