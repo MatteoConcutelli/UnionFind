@@ -1,9 +1,9 @@
 # UnionFind
-UnionFind data structure implemented with QuickFindTree with amortized cost of the union : O(logn).
+UnionFind data structure implemented with QuickFindTree.
 
 ## Code structure
 
-We have many classes :
+Are defined these classes :
   - Elem
   - Node
   - QuickFindTree
